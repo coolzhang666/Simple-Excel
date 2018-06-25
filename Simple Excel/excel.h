@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <regex>
 using namespace std;
 #define MAX_ROW 26
 #define MAX_COL 34
@@ -9,11 +10,11 @@ using namespace std;
 class Cell
 {
 private:
-	int row, col, value;
+	int row, col;
 	bool status;
-
+	string value;
 public:
-	Cell(int row, int col, int value)
+	Cell(int row, int col, string value)
 	{
 		this->row = row;
 		this->col = col;
@@ -41,12 +42,12 @@ public:
 		this->col = col;
 	}
 
-	int getValue()
+	string getValue()
 	{
 		return this->value;
 	}
 
-	void setValue(int value)
+	void setValue(string value)
 	{
 		this->value = value;
 	}
@@ -63,9 +64,12 @@ public:
 };
 
 extern int _row, _col;
-extern Cell ***array;
 extern void create();
 extern void open();
 extern void draw(int row, int col, Cell ***p);
 extern void input(Cell ***p);
 extern void save(Cell ***p);
+extern void calculate(Cell ***p);
+extern void sort(Cell ***p);
+extern void copy(Cell ***p);
+extern void formula(Cell ***p);

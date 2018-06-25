@@ -24,6 +24,18 @@
     <ClCompile Include="save.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="calculate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="copy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="formula.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="excel.h">

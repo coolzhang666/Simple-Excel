@@ -19,6 +19,8 @@ void save(Cell ***p)
 			}
 			write << endl;
 		}
+		system("cls");
+		std::cout << "保存成功" << endl;
 		write.close();
 		read.close();
 	}
@@ -40,6 +42,8 @@ void save(Cell ***p)
 				}
 				write << endl;
 			}
+			system("cls");
+			std::cout << "保存成功" << endl;
 			write.close();
 			read.close();
 		}

@@ -15,7 +15,7 @@ void create() {
 		array[i] = (Cell **)malloc(sizeof(Cell*)*col);
 		for (int j = 0; j < col; j++)
 		{
-			array[i][j] = new Cell(i, j, 0);
+			array[i][j] = new Cell(i, j, "0");
 		}
 	}
 	system("cls");
@@ -40,10 +40,10 @@ void create() {
 			switch (choose)
 			{
 			case 1:input(array); break;
-			case 2:break;
-			case 3:break;
-			case 4:break;
-			case 5:break;
+			case 2:calculate(array); break;
+			case 3:sort(array); break;
+			case 4:copy(array); break;
+			case 5:formula(array); break;
 			case 6:save(array); break;
 			case 0:free(array); return; break;
 			}
@@ -80,7 +80,6 @@ void draw(int row, int col, Cell ***p)
 			}
 			else
 			{
-				//std::cout << "     │";
 				std::cout << setw(5) <<  p[i][j]->getValue() << "│";
 			}
 		}
@@ -109,8 +108,8 @@ void input(Cell ***p)
 	system("cls");\
 	draw(_row, _col, p);
 	while (true) {
-		string err;
-		int row, col, value;
+		string err, value;
+		int row, col;
 		std::cout << "请依次输入行号,列号和数据(输入0 0 0以退出编辑):";
 		std::cout << "行号";
 		std::cin >> row;
@@ -118,8 +117,8 @@ void input(Cell ***p)
 		{
 			cin.clear();
 			cin >> err;
-			std::cout << "#######请输入正确的数据#######" << endl;
 			system("cls");
+			std::cout << "#######请输入正确的数据#######" << endl;
 			continue;
 		}
 		std::cout << "列号";
@@ -128,21 +127,13 @@ void input(Cell ***p)
 		{
 			cin.clear();
 			cin >> err;
-			std::cout << "#######请输入正确的数据#######" << endl;
 			system("cls");
+			std::cout << "#######请输入正确的数据#######" << endl;
 			continue;
 		}
 		std::cout << "数据";
 		std::cin >> value;
-		while (cin.fail())
-		{
-			cin.clear();
-			cin >> err;
-			std::cout << "#######请输入正确的数据#######" << endl;
-			system("cls");
-			continue;
-		}
-		if (row == 0 && col == 0 && value == 0)
+		if (row == 0 && col == 0 && value == "0")
 		{
 			break;
 		}

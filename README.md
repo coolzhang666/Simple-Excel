@@ -1,1 +1,3 @@
-# Simple Excel
+﻿# Simple Excel
+
+### C++ exercises
