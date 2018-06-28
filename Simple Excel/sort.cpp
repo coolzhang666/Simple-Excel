@@ -1,13 +1,13 @@
 #include "excel.h"
 
-void sort_r(Cell ***p);
-void sort_c(Cell ***p);
-void sort_ru(Cell ***p);
-void sort_rd(Cell ***p);
-void sort_cu(Cell ***p);
-void sort_cd(Cell ***p);
+void sort_r(Cell ***p, int _row, int _col);
+void sort_c(Cell ***p, int _row, int _col);
+void sort_ru(Cell ***p, int _row, int _col);
+void sort_rd(Cell ***p, int _row, int _col);
+void sort_cu(Cell ***p, int _row, int _col);
+void sort_cd(Cell ***p, int _row, int _col);
 
-void sort(Cell ***p)
+void sort(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	char c;
@@ -25,8 +25,8 @@ void sort(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sort_r(p); break;
-			case 2:sort_c(p); break;
+			case 1:sort_r(p, _row, _col); break;
+			case 2:sort_c(p, _row, _col); break;
 			case 0:system("cls"); return; break;
 			}
 		}
@@ -38,7 +38,7 @@ void sort(Cell ***p)
 	}
 }
 
-void sort_r(Cell ***p)
+void sort_r(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	char c;
@@ -56,8 +56,8 @@ void sort_r(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sort_ru(p); break;
-			case 2:sort_rd(p); break;
+			case 1:sort_ru(p, _row, _col); break;
+			case 2:sort_rd(p, _row, _col); break;
 			case 0:system("cls"); return; break;
 			}
 		}
@@ -69,7 +69,7 @@ void sort_r(Cell ***p)
 	}
 }
 
-void sort_ru(Cell ***p)
+void sort_ru(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -111,7 +111,7 @@ void sort_ru(Cell ***p)
 	draw(_row, _col, p);
 }
 
-void sort_rd(Cell ***p)
+void sort_rd(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -153,7 +153,7 @@ void sort_rd(Cell ***p)
 	draw(_row, _col, p);
 }
 
-void sort_c(Cell ***p)
+void sort_c(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	char c;
@@ -171,8 +171,8 @@ void sort_c(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sort_cu(p); break;
-			case 2:sort_cd(p); break;
+			case 1:sort_cu(p, _row, _col); break;
+			case 2:sort_cd(p, _row, _col); break;
 			case 0:system("cls"); return; break;
 			}
 		}
@@ -184,7 +184,7 @@ void sort_c(Cell ***p)
 	}
 }
 
-void sort_cu(Cell ***p)
+void sort_cu(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -226,7 +226,7 @@ void sort_cu(Cell ***p)
 	draw(_row, _col, p);
 }
 
-void sort_cd(Cell ***p)
+void sort_cd(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);

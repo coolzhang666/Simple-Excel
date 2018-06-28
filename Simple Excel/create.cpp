@@ -1,25 +1,8 @@
 #include "excel.h"
 int _row, _col;
 
-void create() {
+void create(Cell ***p, int _row, int _col) {
 	system("cls");
-	int row, col;
-	Cell ***array;
-	std::cout << "请输入行数和列数:";
-	std::cin >> row >> col;
-	_row = row;
-	_col = col;
-	array = (Cell ***)malloc(sizeof(Cell**)*row);
-	for (int i = 0; i < row; i++)
-	{
-		array[i] = (Cell **)malloc(sizeof(Cell*)*col);
-		for (int j = 0; j < col; j++)
-		{
-			array[i][j] = new Cell(i, j, "0");
-		}
-	}
-	system("cls");
-	std::cout << "创建成功" << endl;
 	char c;
 	int choose;
 	while (true) {
@@ -39,13 +22,13 @@ void create() {
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:input(array); break;
-			case 2:calculate(array); break;
-			case 3:sort(array); break;
-			case 4:copy(array); break;
-			case 5:formula(array); break;
-			case 6:save(array); break;
-			case 0:free(array); return; break;
+			case 1:input(p, _row, _col); break;
+			case 2:calculate(p, _row, _col); break;
+			case 3:sort(p, _row, _col); break;
+			case 4:copy(p, _row, _col); break;
+			case 5:formula(p); break;
+			case 6:save(p, _row, _col); break;
+			case 0:system("cls"); return; break;
 			}
 		}
 		else
@@ -103,7 +86,7 @@ void draw(int row, int col, Cell ***p)
 	std::cout << "─────┘" << endl;
 }
 
-void input(Cell ***p)
+void input(Cell ***p, int _row, int _col)
 {
 	system("cls");\
 	draw(_row, _col, p);

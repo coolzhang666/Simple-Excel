@@ -1,23 +1,23 @@
 #include "excel.h"
 
-void rows(Cell ***p);
-void cols(Cell ***p);
+void rows(Cell ***p, int _row, int _col);
+void cols(Cell ***p, int _row, int _col);
 bool isNum(string str);
-void sum_r(Cell ***p);
-void average_r(Cell ***p);
-void max_r(Cell ***p);
-void min_r(Cell ***p);
-void sum_c(Cell ***p);
-void average_c(Cell ***p);
-void max_c(Cell ***p);
-void min_c(Cell ***p);
-void block(Cell ***p);
-void sum_b(Cell ***p);
-void average_b(Cell ***p);
-void max_b(Cell ***p);
-void min_b(Cell ***p);
+void sum_r(Cell ***p, int _row, int _col);
+void average_r(Cell ***p, int _row, int _col);
+void max_r(Cell ***p, int _row, int _col);
+void min_r(Cell ***p, int _row, int _col);
+void sum_c(Cell ***p, int _row, int _col);
+void average_c(Cell ***p, int _row, int _col);
+void max_c(Cell ***p, int _row, int _col);
+void min_c(Cell ***p, int _row, int _col);
+void block(Cell ***p, int _row, int _col);
+void sum_b(Cell ***p, int _row, int _col);
+void average_b(Cell ***p, int _row, int _col);
+void max_b(Cell ***p, int _row, int _col);
+void min_b(Cell ***p, int _row, int _col);
 
-void calculate(Cell ***p)
+void calculate(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	int choose;
@@ -36,9 +36,9 @@ void calculate(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:rows(p); break;
-			case 2:cols(p); break;
-			case 3:block(p); break;
+			case 1:rows(p, _row, _col); break;
+			case 2:cols(p, _row, _col); break;
+			case 3:block(p, _row, _col); break;
 			case 0:system("cls"); return; break;
 			}
 		}
@@ -51,7 +51,7 @@ void calculate(Cell ***p)
 }
 
 
-void rows(Cell ***p)
+void rows(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	int choose;
@@ -72,10 +72,10 @@ void rows(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sum_r(p); break;
-			case 2:average_r(p); break;
-			case 3:max_r(p); break;
-			case 4:system("cls"); min_r(p); break;
+			case 1:sum_r(p, _row, _col); break;
+			case 2:average_r(p, _row, _col); break;
+			case 3:max_r(p, _row, _col); break;
+			case 4:system("cls"); min_r(p, _row, _col); break;
 			case 0:return; break;
 			}
 		}
@@ -87,7 +87,7 @@ void rows(Cell ***p)
 	}
 }
 
-void sum_r(Cell ***p)
+void sum_r(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -122,7 +122,7 @@ void sum_r(Cell ***p)
 	std::cout << "第" << row << "行求和结果为:" << result << endl;
 }
 
-void average_r(Cell ***p)
+void average_r(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -160,7 +160,7 @@ void average_r(Cell ***p)
 	std::cout << "第" << row << "行求平均结果为:" << result/flag << endl;
 }
 
-void max_r(Cell ***p)
+void max_r(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -202,7 +202,7 @@ void max_r(Cell ***p)
 	std::cout << "第" << row << "行最大值为:" << result << endl;
 }
 
-void min_r(Cell ***p)
+void min_r(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -245,7 +245,7 @@ void min_r(Cell ***p)
 }
 
 
-void cols(Cell ***p)
+void cols(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	int choose;
@@ -266,10 +266,10 @@ void cols(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sum_c(p); break;
-			case 2:average_c(p); break;
-			case 3:max_c(p); break;
-			case 4:system("cls"); min_c(p); break;
+			case 1:sum_c(p, _row, _col); break;
+			case 2:average_c(p, _row, _col); break;
+			case 3:max_c(p, _row, _col); break;
+			case 4:system("cls"); min_c(p, _row, _col); break;
 			case 0:return; break;
 			}
 		}
@@ -281,7 +281,7 @@ void cols(Cell ***p)
 	}
 }
 
-void sum_c(Cell ***p)
+void sum_c(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -316,7 +316,7 @@ void sum_c(Cell ***p)
 	std::cout << "第" << col << "行求和结果为:" << result << endl;
 }
 
-void average_c(Cell ***p)
+void average_c(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -354,7 +354,7 @@ void average_c(Cell ***p)
 	std::cout << "第" << col << "列求平均结果为:" << result / flag << endl;
 }
 
-void max_c(Cell ***p)
+void max_c(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -396,7 +396,7 @@ void max_c(Cell ***p)
 	std::cout << "第" << col << "列最大值为:" << result << endl;
 }
 
-void min_c(Cell ***p)
+void min_c(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -439,7 +439,7 @@ void min_c(Cell ***p)
 }
 
 
-void block(Cell ***p)
+void block(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	int choose;
@@ -461,10 +461,10 @@ void block(Cell ***p)
 			choose = atoi(&c);
 			switch (choose)
 			{
-			case 1:sum_b(p); break;
-			case 2:average_b(p); break;
-			case 3:max_b(p); break;
-			case 4:min_b(p); break;
+			case 1:sum_b(p, _row, _col); break;
+			case 2:average_b(p, _row, _col); break;
+			case 3:max_b(p, _row, _col); break;
+			case 4:min_b(p, _row, _col); break;
 			case 0:system("cls"); return; break;
 			}
 		}
@@ -476,7 +476,7 @@ void block(Cell ***p)
 	}
 }
 
-void sum_b(Cell ***p)
+void sum_b(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -541,7 +541,7 @@ void sum_b(Cell ***p)
 	std::cout << "求和结果为:" << result << endl;
 }
 
-void average_b(Cell ***p)
+void average_b(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -610,7 +610,7 @@ void average_b(Cell ***p)
 	std::cout << "求平均结果为:" << result/flag << endl;
 }
 
-void max_b(Cell ***p)
+void max_b(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);
@@ -679,7 +679,7 @@ void max_b(Cell ***p)
 	std::cout << "最大值为:" << result << endl;
 }
 
-void min_b(Cell ***p)
+void min_b(Cell ***p, int _row, int _col)
 {
 	system("cls");
 	draw(_row, _col, p);

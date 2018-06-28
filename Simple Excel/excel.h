@@ -3,6 +3,9 @@
 #include <iomanip>
 #include <string>
 #include <regex>
+#include <sstream>
+#include <vector>
+
 using namespace std;
 #define MAX_ROW 26
 #define MAX_COL 34
@@ -63,13 +66,13 @@ public:
 	}
 };
 
-extern int _row, _col;
-extern void create();
+extern void create(Cell ***p, int _row, int _col);
 extern void open();
 extern void draw(int row, int col, Cell ***p);
-extern void input(Cell ***p);
-extern void save(Cell ***p);
-extern void calculate(Cell ***p);
-extern void sort(Cell ***p);
-extern void copy(Cell ***p);
+extern void input(Cell ***p, int _row, int _col);
+extern void save(Cell ***p, int _row, int _col);
+extern void calculate(Cell ***p, int _row, int _col);
+extern void sort(Cell ***p, int _row, int _col);
+extern void copy(Cell ***p, int _row, int _col);
 extern void formula(Cell ***p);
+extern vector<string> readTxt(string file);

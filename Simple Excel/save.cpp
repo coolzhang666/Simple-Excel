@@ -1,6 +1,6 @@
 #include "excel.h"
 
-void save(Cell ***p)
+void save(Cell ***p, int _row, int _col)
 {
 	string filename;
 	std::cout << "请输入文件名" << endl;
@@ -12,6 +12,7 @@ void save(Cell ***p)
 		string str;
 		ofstream write;
 		write.open(filename);
+		write << _row << " " << _col << endl;
 		for (int i = 0; i < _row; i++) {
 			for (int j = 0; j < _col; j++)
 			{
@@ -35,6 +36,7 @@ void save(Cell ***p)
 			string str;
 			ofstream write;
 			write.open(filename);
+			write << _row << " " << _col << endl;
 			for (int i = 0; i < _row; i++) {
 				for (int j = 0; j < _col; j++)
 				{
